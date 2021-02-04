@@ -1,0 +1,23 @@
+<%= form_with(model: @article, local: true)  do |form| %>
+
+    <br>
+    <% if @article.errors.any? %>
+        Errors are 
+        <ol>
+            <% @article.errors.full_messages.each do |each_error| %>
+            <li> <%= each_error %></li>
+            <% end %>
+        </ol>
+    <% end %>
+
+    <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </p>
+    <p>
+        <%= form.label :desc %><br>
+        <%= form.text_area :desc, size: "60x10" %>
+    </p>
+
+    <%= form.submit %>
+<% end %>

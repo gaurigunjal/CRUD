@@ -1,0 +1,9 @@
+<br>
+Title : <%= @article.title %>
+<br>
+Description : <%= @article.desc %>
+
+
+<ul><%= link_to 'update', edit_article_path(@article) %></ul>
+<ul><%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "Are you sure ?"} %></ul>
+<ul><%= link_to 'back to home page', articles_path %></ul>
