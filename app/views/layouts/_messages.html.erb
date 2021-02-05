@@ -1,3 +1,13 @@
-    <% flash.each do |k,v| %>
-    <%= v %>
-    <% end %>
+<% flash.each do |k,v| %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>    
+            <%= v %>
+        </strong>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+<% end %>
+

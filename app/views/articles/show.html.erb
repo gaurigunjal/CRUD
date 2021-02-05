@@ -1,9 +1,19 @@
-<br>
-Title : <%= @article.title %>
-<br>
-Description : <%= @article.desc %>
-
-
-<ul><%= link_to 'update', edit_article_path(@article) %></ul>
-<ul><%= link_to 'delete', article_path(@article), method: :delete, data: {confirm: "Are you sure ?"} %></ul>
-<ul><%= link_to 'back to home page', articles_path %></ul>
+<div class="row justify-content-md-center" id="page-content">
+    <div class="col-8 mt-3">
+        <div class="card text-center">
+            <div class="card-header">
+                Display page
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= @article.title %></h5>
+                <p class="card-text"><%= simple_format(@article.desc) %></p>
+                <%= link_to 'Update', edit_article_path(@article),class:"btn btn-outline-primary" %>
+                <%= link_to 'Delete', article_path(@article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure ?"} %>
+                <%= link_to 'Go back', articles_path , class:"btn btn-outline-dark"%>
+            <div class="card-footer text-muted mt-3">
+                <small>  created <%=  time_ago_in_words(@article.created_at)  %> ago, updated <%=  time_ago_in_words(@article.updated_at)  %> ago
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

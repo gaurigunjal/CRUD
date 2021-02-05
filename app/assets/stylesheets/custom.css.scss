@@ -1,0 +1,65 @@
+// @import 'bootstrap/dist/css/bootstrap';
+// @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "node_modules/bootstrap/dist/css/bootstrap.css";
+.navbar {
+    background-color: blue !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.8em;
+    color: yellow;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#home-container {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    background-image: asset-url('jumbo-copy.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    color: snow;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+    background-color: grey;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+}
+
+.form-content {
+    background-color: blue;
+    height: 15em;
+}
+
+.form-group {
+    text-align: left;
+    margin-left: 1em;
+    padding: 1em 1em 1em 0em;
+}
+
+#center {
+    text-align: center;
+}
+
+#errors {
+    color: red;
+    font-size: x-small;
+}
