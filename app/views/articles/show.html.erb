@@ -2,7 +2,8 @@
     <div class="col-8 mt-3">
         <div class="card text-center">
             <div class="card-header">
-                Display page
+                <%# Display page %>
+                Updated by <%= @article.user.username%>
             </div>
             <div class="card-body">
                 <h5 class="card-title"><%= @article.title %></h5>

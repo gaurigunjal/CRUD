@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.new(params.require(:article).permit(:title, :desc))
+        @article.user = User.find(1)
         # @article.save
 
         # # # render plain: @article.inspect
