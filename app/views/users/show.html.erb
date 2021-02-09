@@ -1,7 +1,9 @@
+
  <div class="row justify-content-md-center" id="page-content">
 
-    <h1>Welcome <%=  @user.username %></h1>
-    <div>
+    <div class="col-12">
+        <h1 id="center">Welcome <%= @user.username %></h1>
+
         <%= render 'articles/article' %>
     </div>
 

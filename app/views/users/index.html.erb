@@ -1,0 +1,21 @@
+<div class="row justify-content-md-center" id="page-content">
+    <div class="col-6 mt-3">
+    <h1 id="center">List of all users</h1>
+        <% @users.each do |user| %>
+        
+            <div class="card text-center mt-3">
+                <div class="card-body">
+                    <h5 class="card-title"><%= user.username %></h5>
+                    <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
+                    <%= link_to 'View profile', user_path(user),class:"btn btn-outline-primary" %>
+                    <%= link_to 'Update profile', edit_user_path(user),class:"btn btn-outline-success" %>
+                    <%= link_to 'Go back', users_path , class:"btn btn-outline-dark"%>
+                </div>
+                <div class="card-footer text-muted mt-3">
+                    <small> Joined <%=  time_ago_in_words(user.created_at)  %> ago
+                    </small>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

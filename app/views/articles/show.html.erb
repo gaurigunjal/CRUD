@@ -10,6 +10,7 @@
                 <%= link_to 'Update', edit_article_path(@article),class:"btn btn-outline-primary" %>
                 <%= link_to 'Delete', article_path(@article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure ?"} %>
                 <%= link_to 'Go back', articles_path , class:"btn btn-outline-dark"%>
+            </div>
             <div class="card-footer text-muted mt-3">
                 <small>  created <%=  time_ago_in_words(@article.created_at)  %> ago, updated <%=  time_ago_in_words(@article.updated_at)  %> ago
                 </small>
