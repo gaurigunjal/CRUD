@@ -11,4 +11,6 @@ class User < ApplicationRecord
         uniqueness: { case_sensitive: false }, 
         format: { with: /[a-z0-9]+@([a-z0-9-]+\.)+[a-z]{2,4}/i},
         length: { maximum: 100}
+
+    has_secure_password
 end
