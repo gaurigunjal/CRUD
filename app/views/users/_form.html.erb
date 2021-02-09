@@ -31,7 +31,7 @@
         </div>
 
         <div class="mt-5" id="center">
-            <%= form.submit "Sign up", class:"submit-btn btn btn-warning " %>
+            <%= form.submit(@user.new_record? ? "Sign up" : "Update account", class:"submit-btn btn btn-warning ") %>
             <%= link_to "Go back", articles_path , class:"btn btn-dark ", style: "float: right;" %>
         </div>
     <% end %>
