@@ -1,6 +1,9 @@
 <div class="row justify-content-md-center" id="page-content">
     <div class="col-6 mt-3">
     <h1 id="center">List of all users</h1>
+        <div class="flickr_pagination mt-3"> 
+        <%= will_paginate @users, :container => false%>
+        </div>
         <% @users.each do |user| %>
         
             <div class="card text-center mt-3">

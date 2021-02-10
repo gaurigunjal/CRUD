@@ -1,23 +1,61 @@
 
-
+<%
+=begin%>
 <div id="page-content">
   <h1 class="text-center mt-4">List of all articles</h1>
   <table class="container table table-striped table-bordered table-dark text-center  ">
       <tr>
-          <th>Id</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th colspan=3>Actions</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th colspan=3>Actions</th>
+            <th>User</th>
       </tr>
       <% @articles.each do |each_article| %>
-      <tr>
-          <td><%= each_article.id%></td>
-          <td><%= each_article.title%></td>
-          <td><%= truncate(each_article.desc, length:50)%></td>
-          <td><%= link_to 'Show', article_path(each_article), class:"btn btn-outline-success" %></td>
-          <td><%= link_to 'Edit', edit_article_path(each_article), class:"btn btn-outline-primary" %></td>
-          <td><%= link_to 'Delete', article_path(each_article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure ?"}  %></td>
-      </tr>
+        <tr>
+                <td><%= each_article.id%></td>
+                <td><%= each_article.title%></td>
+                <td><%= truncate(each_article.desc, length:50)%></td>
+                <td><%= link_to 'Show', article_path(each_article), class:"btn btn-outline-success" %></td>
+                <td><%= link_to 'Edit', edit_article_path(each_article), class:"btn btn-outline-primary" %></td>
+                <td><%= link_to 'Delete', article_path(each_article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure ?"}  %></td>
+                <td><%= link_to each_article.user.username, user_path(each_article.user)%></td>
+        </tr>
       <% end %>
   </table>
+</div>
+
+<%
+=end%>
+
+
+
+<div class="row justify-content-md-center" id="page-content">
+    <div class="col-6">
+        <h1 class="text-center mt-4">List of all articles</h1>
+
+        <div class="flickr_pagination" id="center">       
+            <%= will_paginate @articles, :container => false %>
+        </div>
+
+        <% @articles.each do |each_article| %>
+
+            <div class="card text-center mt-3">
+                <div class="card-header">
+                    Updated by <%= link_to each_article.user.username, user_path(each_article)%>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= each_article.title %></h5>
+                    <p class="card-text"><%= simple_format(each_article.desc) %></p>
+                    <%= link_to 'Show', article_path(each_article), class:"btn btn-outline-success" %>
+                    <%= link_to 'Edit', edit_article_path(each_article),class:"btn btn-outline-primary" %>
+                    <%= link_to 'Delete', article_path(each_article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure ?"}  %>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>  created <%=  time_ago_in_words(each_article.created_at)  %> ago, updated <%=  time_ago_in_words(each_article.updated_at)  %> ago
+                    </small>
+                </div>
+            </div>
+        <% end %>
+    </div>
 </div>
